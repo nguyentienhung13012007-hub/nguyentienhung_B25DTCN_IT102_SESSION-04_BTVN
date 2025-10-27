@@ -1,61 +1,31 @@
-#include <stdio.h>
+#include<stdio.h>
+
 
 int main() {
-    double soCu, soMoi;
-    double soDien, tien ;
-    int bac;
+    float x, y, S, Z;
+
+    printf("Nhap so dien dau thang: ");
+    scanf("%f", &x);
+    printf("Nhap so dien cuoi thang: ");
+    scanf("%f", &y);
 
 
-    printf("Nhap chi so cu: ");
-    scanf("%lf", &soCu);
-    printf("Nhap chi so moi: ");
-    scanf("%lf", &soMoi);
+    S = y - x;
 
-
-    if (soMoi < soCu) {
-        printf("Loi: Chi so moi phai lon hon hoac bang chi so cu!\n");
-        return 1;
+    if (S >= 0 && S < 50) {
+        Z = S * 10000;
+    } else if (S >= 50 && S < 100) {
+        Z = S * 15000;
+    } else if (S >= 100 && S < 150) {
+        Z = S * 20000;
+    } else if (S >= 150 && S < 200) {
+        Z = S * 25000;
+    } else {
+        Z = S * 30000;
     }
 
-    soDien = soMoi - soCu;
-
- 
-    if (soDien < 50)
-        bac = 1;
-    else if (soDien < 100)
-        bac = 2;
-    else if (soDien < 150)
-        bac = 3;
-    else if (soDien < 200)
-        bac = 4;
-    else
-        bac = 5;
-
-  
-    switch (bac) {
-        case 1:
-            tien = soDien * 10000;
-            break;
-        case 2:
-            tien = soDien * 15000;
-            break;
-        case 3:
-            tien = soDien * 20000;
-            break;
-        case 4:
-            tien = soDien * 25000;
-            break;
-        case 5:
-            tien = soDien * 30000;
-            break;
-        default:
-            printf("Khong xac dinh duoc bac dien!\n");
-            return 1;
-    }
-
-
-    printf("\nSo dien tieu thu: %.2lf kWh\n", soDien);
-    printf("So tien phai tra la: %.2lf VND\n", tien);
+    printf("So dien tieu thu: %.0f kWh\n", S);
+    printf("Tien dien la: %.0f VND\n", Z);
 
     return 0;
 }
